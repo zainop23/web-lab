@@ -1,0 +1,26 @@
+body{
+    background-color: bisque;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: grab;
+    background-image: url("logo.jpg");
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+header{
+    background: rgba(255, 255, 255, 0.8);
+}
+
+a:hover{
+    text-decoration: underline;
+    color: bisque;
+}
+.badge{
+     position: absolute;
+      margin-bottom: 100px;
+      left: 100px;
+      width: 200px;
+      height: auto;
+      background-color: blue;
+}

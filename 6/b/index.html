@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <p id="t">TEXT GROWING</p>
+    <script>
+        let s=5;
+        let flag=1;
+        (function doit(){
+        let t=document.querySelector("#t")
+        t.style.fontSize=s+"pt"
+        flag?t.style.color='red':t.style.color='blue'
+        flag?s+=1:s-=1;
+
+        if(s>50){
+            flag=0;
+            t.innerText="TEXT SHRINKING"
+        }
+        if(s<4){
+            flag=1;
+            t.innerText="TEXT GROWING"
+        }
+        setTimeout(doit,100)
+
+    })();
+    </script>
+</body>
+</html>

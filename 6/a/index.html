@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="sqcu"></div>
+    <script>
+        let nr=prompt('Enter:');
+        let na=nr.split("-");
+        if(na.length!=2) alert("Invalid range!")
+        let n1=na[0];
+        let n2=na[1];
+        let table=`<table><tr><th>Squares</th><th>Cubes</th></tr>`
+        const sqcu=document.querySelector("#sqcu")
+        for(let i=n1; i<=n2; i++){
+            table+=`<tr><td>${i*i}</td><td>${i*i*i}</td></tr>`
+        }
+        table+=`</table>`
+        sqcu.innerHTML=table
+
+    </script>
+</body>
+</html>

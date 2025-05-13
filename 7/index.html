@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #butdiv{
+            display: grid;
+            grid-template-columns: repeat(4,50px);
+            gap: 3px;
+        }
+        #disp{
+            margin: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <form action="">
+    <input type="text" id="disp" > <label for="" readonly>Enter The Exp</label>
+    <input type="submit" onclick="ans()">
+    </form>
+    <div id="butdiv">
+        <button onclick="cleard()">C</button>
+        <button onclick="d('/')">/</button>
+        <button onclick="d('*')">*</button>
+        <button onclick="d('-')">-</button>
+        <button onclick="d('1')">1</button>
+        <button onclick="d('2')">2</button>
+        <button onclick="d('3')">3</button>
+        <button onclick="d('+')">+</button>
+        <button onclick="d('4')">4</button>
+        <button onclick="d('5')">5</button>
+        <button onclick="d('6')">6</button>
+        <button onclick="ans()">ans</button>
+        <button onclick="d('7')">7</button>
+        <button onclick="d('8')">8</button>
+        <button onclick="d('9')">9</button>
+        <button onclick="d('0')">0</button>
+        <button onclick="d('.')">.</button>
+        <button onclick="del()">del</button>
+
+    </div>
+
+    <script>
+        const disp= document.querySelector("#disp");
+        const operators=['+', '-', '*', '/']
+        function d(val){
+const current = disp.value;
+        const lastChar = current.charAt(current.length - 1);
+
+        // Prevent starting with an operator
+        if (current.length === 0 && operators.includes(val)) {
+            return;
+        }
+
+        // Prevent two operators in a row
+        if (operators.includes(lastChar) && operators.includes(val)) {
+            return;
+        }
+            disp.value+=val
+        }
+        function cleard(){
+            disp.value=""
+        }
+        function del(){
+            disp.value=disp.value.slice(0,-1)
+        }
+        function ans(){
+            let exp=disp.value;
+            let ans=eval(exp);
+            disp.value=ans
+        }
+        disp.addEventListener("keydown",(e)=>{
+            if(e.key=='Enter') e.preventDefault(), ans();
+            if(e.key=='Backspace') e.preventDefault(),del();
+        })
+    </script>
+</body>
+</html>
